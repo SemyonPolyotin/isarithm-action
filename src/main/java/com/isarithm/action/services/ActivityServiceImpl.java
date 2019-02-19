@@ -1,6 +1,7 @@
 package com.isarithm.action.services;
 
 import com.isarithm.action.domain.Activity;
+import com.isarithm.action.domain.TimeRecord;
 import com.isarithm.action.repository.ActivityRepository;
 import com.isarithm.action.web.model.ActivityRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class ActivityServiceImpl
@@ -50,5 +52,10 @@ public class ActivityServiceImpl
 	@Override
 	public void deleteActivity(Integer id) {
 		activityRepository.deleteById(id);
+	}
+
+	@Override
+	public List<TimeRecord> getTimeRecords(Integer activityId) {
+		return this.getActivity(activityId).getTimeRecords();
 	}
 }

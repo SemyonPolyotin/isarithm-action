@@ -4,7 +4,9 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -31,4 +33,10 @@ public class Activity {
 
 	@Column(name = "activities_last_update_date", nullable = false)
 	private Date lastUpdateDate;
+
+	@Column(name = "activities_tolerance", nullable = false)
+	private Integer tolerance;
+
+	@OneToMany(mappedBy = "activity", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<TimeRecord> timeRecords = new ArrayList<>();
 }

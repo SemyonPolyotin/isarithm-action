@@ -16,6 +16,7 @@ public class ActivityResponse {
 	private String name;
 	private Date createDate;
 	private Date lastUpdateDate;
+	private Integer tolerance;
 
 	public ActivityResponse(Activity activity) {
 		this.id = activity.getId();
@@ -24,5 +25,6 @@ public class ActivityResponse {
 		this.name = activity.getName();
 		this.createDate = activity.getCreateDate();
 		this.lastUpdateDate = activity.getLastUpdateDate();
+		this.tolerance = activity.getTolerance();
 	}
 }
